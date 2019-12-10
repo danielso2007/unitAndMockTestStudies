@@ -1,0 +1,25 @@
+{
+  "name": "testesunitarios",
+  "version": "0.0.1",
+  "description": "Estudo de testes unitários",
+  "scripts": {
+    "test": "mvn clean test jacoco:report",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git"
+  },
+  "keywords": [
+    "java",
+    "junit",
+    "mockito",
+    "mock",
+    "test"
+  ],
+  "author": "Daniel da Silva Oliveira",
+  "license": "ISC",
+  "devDependencies": {
+    "standard-version": "^7.0.1"
+  }
+}
