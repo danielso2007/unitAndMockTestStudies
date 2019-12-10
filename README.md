@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/danielso2007/unitAndMockTestStudies.svg?branch=master)](https://travis-ci.org/danielso2007/unitAndMockTestStudies)
+[![codecov](https://codecov.io/gh/danielso2007/unitAndMockTestStudies/branch/master/graph/badge.svg)](https://codecov.io/gh/danielso2007/unitAndMockTestStudies)
 ![GitHub package version](https://img.shields.io/github/package-json/v/danielso2007/unitAndMockTestStudies.svg)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr-raw/danielso2007/unitAndMockTestStudies.svg)](https://github.com/danielso2007/unitAndMockTestStudies/pulls)
 [![GitHub issues](https://img.shields.io/github/issues/danielso2007/unitAndMockTestStudies.svg)](https://github.com/danielso2007/unitAndMockTestStudies/issues?q=is%3Aopen+is%3Aissue)

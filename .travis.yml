@@ -1,9 +1,11 @@
 language: java
+sudo: false # faster builds
 env:
   global:
     - CODECOV_TOKEN=6305c3ab-cba9-4ccf-bfb9-37a2cc46291a
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+before_install:
+  - pyenv install 3.6.0
+  - pip install requests
 cache:
   directories:
     - $HOME/.m2
@@ -11,3 +13,6 @@ jdk:
   - oraclejdk11
 script:
   - mvn clean test
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+  - python request.py
