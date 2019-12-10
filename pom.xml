@@ -85,6 +85,7 @@
          </dependency>
     </dependencies>
    </dependencyManagement>
+
    <build>
       <directory>${project.basedir}/target</directory>
       <outputDirectory>${project.build.directory}/classes</outputDirectory>
@@ -162,15 +163,9 @@
 				<trimStackTrace>false</trimStackTrace>
 				<forkCount>4</forkCount>
 				<threadCount>4</threadCount>
-				<reuseForks>false</reuseForks>
 				<parallel>all</parallel>
 				<perCoreThreadCount>true</perCoreThreadCount>
 				<useUnlimitedThreads>false</useUnlimitedThreads>
-                <forkMode>always</forkMode>
-                <argLine>-Xmx1024m</argLine>
-                <argLine>--add-modules java.xml.bind</argLine>
-                <argLine>--add-modules java.activation</argLine>
-                <argLine>--add-opens=java.base/java.lang=ALL-UNNAMED --illegal-access=warn</argLine>
 				<includes>
 					<include>br/ce/wcaquino/**/*.java</include>
 				</includes>
