@@ -1,12 +1,10 @@
 language: java
 python:
-  - 2.7
-  - 3.5
   - 3.6
 before_install:
   - python --version
-  - pip install -U pip
-  - pip install -U pytest
+  - pip install -U pip --user
+  - pip install -U pytest --user
   - pip install codecov
 cache:
   directories:
