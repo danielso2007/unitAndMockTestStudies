@@ -1,6 +1,6 @@
 {
   "name": "testesunitarios",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Estudo de testes unitários",
   "scripts": {
     "test": "mvn clean test jacoco:report",
