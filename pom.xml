@@ -85,6 +85,7 @@
          </dependency>
     </dependencies>
    </dependencyManagement>
+
    <build>
       <directory>${project.basedir}/target</directory>
       <outputDirectory>${project.build.directory}/classes</outputDirectory>
@@ -117,40 +118,46 @@
             <groupId>org.jacoco</groupId>
             <artifactId>jacoco-maven-plugin</artifactId>
             <version>0.8.5</version>
-            <executions>
-               <execution>
-                  <id>default-prepare-agent</id>
-                  <goals>
-                     <goal>prepare-agent</goal>
-                  </goals>
-               </execution>
-               <execution>
-                  <id>default-report</id>
-                  <goals>
-                     <goal>report</goal>
-                  </goals>
-               </execution>
-               <execution>
-                  <id>default-check</id>
-                  <goals>
-                     <goal>check</goal>
-                  </goals>
-                  <configuration>
-                     <rules>
-                        <rule>
-                           <element>BUNDLE</element>
-                           <limits>
-                              <limit>
-                                 <counter>COMPLEXITY</counter>
-                                 <value>COVEREDRATIO</value>
-                                 <minimum>0.80</minimum>
-                              </limit>
-                           </limits>
-                        </rule>
-                     </rules>
-                  </configuration>
-               </execution>
-            </executions>
+            <configuration>
+               <excludes>
+                <exclude>META-INF/**</exclude>
+               </excludes>
+             </configuration>
+             <executions>
+                <execution>
+                   <id>pre-unit-test</id>
+                   <goals>
+                      <goal>prepare-agent</goal>
+                   </goals>
+                </execution>
+                <execution>
+                   <id>post-unit-test</id>
+                   <phase>test</phase>
+                   <goals>
+                      <goal>report</goal>
+                      <goal>check</goal>
+                   </goals>
+                   <configuration>
+                      <rules>
+                         <rule>
+                            <element>BUNDLE</element>
+                            <limits>
+                               <limit implementation="org.jacoco.report.check.Limit">
+                                  <counter>INSTRUCTION</counter>
+                                  <value>COVEREDRATIO</value>
+                                  <minimum>0.60</minimum>
+                               </limit>
+                               <limit>
+                                  <counter>COMPLEXITY</counter>
+                                  <value>COVEREDRATIO</value>
+                                  <minimum>0.60</minimum>
+                               </limit>
+                            </limits>
+                         </rule>
+                      </rules>
+                   </configuration>
+                </execution>
+             </executions>
          </plugin>
          <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -162,15 +169,9 @@
 				<trimStackTrace>false</trimStackTrace>
 				<forkCount>4</forkCount>
 				<threadCount>4</threadCount>
-				<reuseForks>false</reuseForks>
 				<parallel>all</parallel>
 				<perCoreThreadCount>true</perCoreThreadCount>
 				<useUnlimitedThreads>false</useUnlimitedThreads>
-                <forkMode>always</forkMode>
-                <argLine>-Xmx1024m</argLine>
-                <argLine>--add-modules java.xml.bind</argLine>
-                <argLine>--add-modules java.activation</argLine>
-                <argLine>--add-opens=java.base/java.lang=ALL-UNNAMED --illegal-access=warn</argLine>
 				<includes>
 					<include>br/ce/wcaquino/**/*.java</include>
 				</includes>

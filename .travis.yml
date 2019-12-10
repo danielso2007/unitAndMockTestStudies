@@ -1,18 +1,18 @@
 language: java
-sudo: false # faster builds
-env:
-  global:
-    - CODECOV_TOKEN=6305c3ab-cba9-4ccf-bfb9-37a2cc46291a
+python:
+  - 3.6
 before_install:
-  - pyenv install 3.6.0
-  - pip install requests
+  - python --version
+  - pip install -U pip --user
+  - pip install -U pytest --user
+  - pip install codecov --user
 cache:
   directories:
     - $HOME/.m2
 jdk:
   - oraclejdk11
 script:
-  - mvn clean test
+  - mvn clean test jacoco:report
 after_success:
   - bash <(curl -s https://codecov.io/bash)
-  - python request.py
+  - codecov
