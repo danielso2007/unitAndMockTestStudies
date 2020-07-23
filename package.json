@@ -20,6 +20,6 @@
   "author": "Daniel da Silva Oliveira",
   "license": "ISC",
   "devDependencies": {
-    "standard-version": "^7.0.1"
+    "standard-version": "^8.0.1"
   }
 }
